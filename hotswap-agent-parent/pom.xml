@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>org.hotswap.agent</groupId>
     <artifactId>hotswap-agent-parent</artifactId>
     <packaging>pom</packaging>
@@ -172,4 +174,31 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>CG Repo</name>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>http://artifactory.center.cg/artifactory/all</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>ASD CG Release repository</name>
+            <url>http://artifactory.center.cg/artifactory/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>ASD CG Snapshots repository</name>
+            <url>http://artifactory.center.cg/artifactory/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
