@@ -1,4 +1,4 @@
-package org.hotswap.agent.plugin.spring.scanner;
+package org.hotswap.agent.plugin.geminiblueprint.scanner;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hotswap.agent.logging.AgentLogger;
+import org.hotswap.agent.plugin.geminiblueprint.GeminiBlueprintPlugin;
 import org.hotswap.agent.plugin.spring.ResetBeanPostProcessorCaches;
 import org.hotswap.agent.plugin.spring.ResetRequestMappingCaches;
 import org.hotswap.agent.plugin.spring.ResetSpringStaticCaches;
-import org.hotswap.agent.plugin.spring.SpringPlugin;
 import org.hotswap.agent.plugin.spring.getbean.ProxyReplacer;
 import org.hotswap.agent.util.PluginManagerInvoker;
 import org.hotswap.agent.util.ReflectionHelper;
@@ -30,14 +30,12 @@ import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 
 /**
- * Registers
- *
- * @author Jiri Bubnik
+ * @author Abdulin
  */
-public class ClassPathBeanDefinitionScannerAgent {
-  private static AgentLogger LOGGER = AgentLogger.getLogger(ClassPathBeanDefinitionScannerAgent.class);
+public class GeminiClassPathBeanDefinitionScannerAgent {
+  private static AgentLogger LOGGER = AgentLogger.getLogger(GeminiClassPathBeanDefinitionScannerAgent.class);
 
-  private static Map<ClassPathBeanDefinitionScanner, ClassPathBeanDefinitionScannerAgent> instances = new HashMap<ClassPathBeanDefinitionScanner, ClassPathBeanDefinitionScannerAgent>();
+  private static Map<ClassPathBeanDefinitionScanner, GeminiClassPathBeanDefinitionScannerAgent> instances = new HashMap<ClassPathBeanDefinitionScanner, GeminiClassPathBeanDefinitionScannerAgent>();
 
   /**
    * Flag to check reload status.
@@ -61,15 +59,17 @@ public class ClassPathBeanDefinitionScannerAgent {
   // bean name generator obtained from the scanner
   BeanNameGenerator beanNameGenerator;
 
+  ClassLoader appClassLoader;
+
   /**
    * Return an agent instance for a scanner. If the instance does not exists yet, it is created.
    *
    * @param scanner the scanner
    * @return agent instance
    */
-  public static ClassPathBeanDefinitionScannerAgent getInstance(ClassPathBeanDefinitionScanner scanner) {
+  public static GeminiClassPathBeanDefinitionScannerAgent getInstance(ClassLoader appClassLoader, ClassPathBeanDefinitionScanner scanner) {
     if (!instances.containsKey(scanner)) {
-      instances.put(scanner, new ClassPathBeanDefinitionScannerAgent(scanner));
+      instances.put(scanner, new GeminiClassPathBeanDefinitionScannerAgent(appClassLoader, scanner));
     }
     return instances.get(scanner);
   }
@@ -80,8 +80,8 @@ public class ClassPathBeanDefinitionScannerAgent {
    * @param basePackage the scanner agent or null if no such agent exists
    * @return the agent
    */
-  public static ClassPathBeanDefinitionScannerAgent getInstance(String basePackage) {
-    for (ClassPathBeanDefinitionScannerAgent scannerAgent : instances.values()) {
+  public static GeminiClassPathBeanDefinitionScannerAgent getInstance(String basePackage) {
+    for (GeminiClassPathBeanDefinitionScannerAgent scannerAgent : instances.values()) {
       if (scannerAgent.basePackages.contains(basePackage))
         return scannerAgent;
     }
@@ -89,12 +89,13 @@ public class ClassPathBeanDefinitionScannerAgent {
   }
 
   // Create new instance from getInstance(ClassPathBeanDefinitionScanner scanner) and obtain services from the scanner
-  private ClassPathBeanDefinitionScannerAgent(ClassPathBeanDefinitionScanner scanner) {
+  private GeminiClassPathBeanDefinitionScannerAgent(ClassLoader appClassLoader, ClassPathBeanDefinitionScanner scanner) {
     this.scanner = scanner;
 
     this.registry = scanner.getRegistry();
     this.scopeMetadataResolver = (ScopeMetadataResolver) ReflectionHelper.get(scanner, "scopeMetadataResolver");
     this.beanNameGenerator = (BeanNameGenerator) ReflectionHelper.get(scanner, "beanNameGenerator");
+    this.appClassLoader = appClassLoader;
   }
 
   /**
@@ -105,8 +106,8 @@ public class ClassPathBeanDefinitionScannerAgent {
   public void registerBasePackage(String basePackage) {
     this.basePackages.add(basePackage);
 
-    PluginManagerInvoker.callPluginMethod(SpringPlugin.class, getClass().getClassLoader(),
-        "registerComponentScanBasePackage", new Class[] {String.class}, new Object[] {basePackage});
+    PluginManagerInvoker.callPluginMethod(GeminiBlueprintPlugin.class, appClassLoader,
+        "registerComponentScanBasePackage", new Class[] {String.class, Object.class}, new Object[] {basePackage, this});
   }
 
   /**
@@ -117,15 +118,20 @@ public class ClassPathBeanDefinitionScannerAgent {
    * @throws IOException error working with classDefinition
    */
   public static void refreshClass(String basePackage, byte[] classDefinition) throws IOException {
-    ClassPathBeanDefinitionScannerAgent scannerAgent = getInstance(basePackage);
+    GeminiClassPathBeanDefinitionScannerAgent scannerAgent = getInstance(basePackage);
     if (scannerAgent == null) {
       LOGGER.error("basePackage '{}' not associated with any scannerAgent", basePackage);
       return;
     }
 
-    BeanDefinition beanDefinition = scannerAgent.resolveBeanDefinition(classDefinition);
+    scannerAgent.resolveAndDefineBeanDefinition(classDefinition);
+
+  }
+
+  public void resolveAndDefineBeanDefinition(byte[] classDefinition) throws IOException {
+    BeanDefinition beanDefinition = resolveBeanDefinition(classDefinition);
     if (beanDefinition != null) {
-      scannerAgent.defineBean(beanDefinition);
+      defineBean(beanDefinition);
     }
 
     reloadFlag = false;
