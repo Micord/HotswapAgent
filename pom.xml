@@ -5,7 +5,7 @@
 
   <groupId>org.hotswap.agent</groupId>
   <artifactId>hotswap-agent-aggregator</artifactId>
-  <version>0.3.0-Center-SNAPSHOT</version>
+  <version>0.3.0-Center</version>
   <packaging>pom</packaging>
 
   <name>Hotswap Agent Aggregator</name>
