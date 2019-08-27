@@ -28,7 +28,7 @@ public class ClassPathBeanDefinitionScannerTransformer {
         CtMethod method = clazz.getDeclaredMethod("findCandidateComponents", new CtClass[]{classPool.get("java.lang.String")});
         method.insertAfter("if (this instanceof org.springframework.context.annotation.ClassPathBeanDefinitionScanner) {" +
                 "org.hotswap.agent.plugin.spring.scanner.ClassPathBeanDefinitionScannerAgent." +
-            "getInstance(getResourceLoader().getClassLoader(),(org.springframework.context.annotation.ClassPathBeanDefinitionScanner)this)." +
+            "getInstance((org.springframework.context.annotation.ClassPathBeanDefinitionScanner)this)." +
             "registerBasePackage($1);" +
                 "}");
 
