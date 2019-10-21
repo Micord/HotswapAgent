@@ -4,10 +4,7 @@ import org.hotswap.agent.plugin.hotswapper.HotSwapper;
 import org.hotswap.agent.plugin.spring.scanner.ClassPathBeanDefinitionScannerAgent;
 import org.hotswap.agent.plugin.spring.scanner.XmlBeanDefinationScannerAgent;
 import org.hotswap.agent.plugin.spring.testBeans.*;
-import org.hotswap.agent.plugin.spring.testBeansHotswap.BeanPrototype2;
-import org.hotswap.agent.plugin.spring.testBeansHotswap.BeanRepository2;
-import org.hotswap.agent.plugin.spring.testBeansHotswap.BeanServiceImpl2;
-import org.hotswap.agent.plugin.spring.testBeansHotswap.Pojo2;
+import org.hotswap.agent.plugin.spring.testBeansHotswap.*;
 import org.hotswap.agent.util.ReflectionHelper;
 import org.hotswap.agent.util.spring.io.resource.ClassPathResource;
 import org.hotswap.agent.util.spring.io.resource.Resource;
@@ -159,6 +156,13 @@ public class SpringPluginTest {
 
 
         assertEquals(0, applicationContext.getBeanNamesForType(Pojo.class).length);
+    }
+
+    @Test
+    public void postConstructTest() throws Exception {
+        assertEquals("old value", applicationContext.getBean(BeanPostConstruct.class).getValue());
+        swapClasses(BeanPostConstructImpl.class, BeanPostConstructImpl2.class.getName());
+        assertEquals("new value", applicationContext.getBean(BeanPostConstruct.class).getValue());
     }
 
     private void swapClasses(Class original, String swap) throws Exception {
