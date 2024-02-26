@@ -18,6 +18,7 @@
  */
 package org.hotswap.agent.util;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -119,6 +120,15 @@ public class ReflectionHelper {
         return invoke(target, target.getClass(), methodName, new Class[] {});
     }
 
+    public static Object invokeConstructor(String className, ClassLoader cl, Class<?>[] parameterTypes,
+                                           Object... args) throws ClassNotFoundException, NoSuchMethodException,
+            InvocationTargetException, InstantiationException, IllegalAccessException {
+        Class<?> clazz = Class.forName(className, true, cl);
+        Constructor constructor = clazz.getDeclaredConstructor(parameterTypes);
+        constructor.setAccessible(true);
+        return constructor.newInstance(args);
+    }
+
     /**
      * Convenience wrapper to reflection field access API. Get field value and hide
      * checked exceptions. Field class is set by
@@ -191,6 +201,29 @@ public class ReflectionHelper {
             LOGGER.trace("Error getting field {}.{} on object {}", e, clazz, fieldName, target);
             return null;
         }
+    }
+
+    /**
+     * Convenience wrapper to reflection field access API. Get field value and
+     * swallow exceptions. Use this method if you have multiple framework support
+     * and the field may not exist in current version.
+     *
+     * @param target    object to get field value (or null for static methods)
+     * @param className class name
+     * @param cl        class loader to load the target class
+     * @param fieldName field name
+     * @return field value or null if an exception
+     */
+    public static Object getNoException(Object target, String className, ClassLoader cl, String fieldName) {
+        Class<?> clazz;
+        try {
+            clazz = cl.loadClass(className);
+        } catch (ClassNotFoundException e) {
+            LOGGER.trace("Class {} not found", e, className);
+            return null;
+        }
+
+        return getNoException(target, clazz, fieldName);
     }
 
     /**
