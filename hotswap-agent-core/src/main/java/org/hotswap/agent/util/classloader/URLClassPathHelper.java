@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -192,7 +192,11 @@ public class URLClassPathHelper {
 
         Class<?> ucpOwner = classLoader.getClass();
         if (ucpOwner.getName().startsWith("jdk.internal.loader.ClassLoaders$")) {
-            return ucpOwner.getDeclaredField("ucp");
+            try {
+                return ucpOwner.getDeclaredField("ucp");
+            } catch (NoSuchFieldException e) {
+                return ucpOwner.getSuperclass().getDeclaredField("ucp");
+            }
         }
 
         return null;

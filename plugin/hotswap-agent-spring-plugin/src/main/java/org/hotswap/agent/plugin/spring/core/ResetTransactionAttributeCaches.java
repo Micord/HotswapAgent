@@ -1,6 +1,5 @@
-package org.hotswap.agent.plugin.spring.core;
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -17,6 +16,7 @@ package org.hotswap.agent.plugin.spring.core;
  * You should have received a copy of the GNU General Public License along
  * with HotswapAgent. If not, see http://www.gnu.org/licenses/.
  */
+package org.hotswap.agent.plugin.spring.core;
 
 import org.hotswap.agent.logging.AgentLogger;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;

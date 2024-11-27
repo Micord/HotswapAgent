@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -27,6 +27,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * The type Bean factory assistant.
+ */
 public class BeanFactoryAssistant {
     private ConfigurableListableBeanFactory beanFactory;
     private AtomicInteger reloadTimes;

@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.hotswapagent</groupId>
         <artifactId>hotswap-agent-parent</artifactId>
-        <version>1.4.2-micord.2</version>
+        <version>${revision}</version>
         <relativePath>../../hotswap-agent-parent/pom.xml</relativePath>
     </parent>
 
@@ -40,7 +40,7 @@
             </activation>
 
             <properties>
-                <org.jboss.weld.version>5.1.0.Final</org.jboss.weld.version>
+                <org.jboss.weld.version>5.1.2.Final</org.jboss.weld.version>
                 <org.jboss.weld-spi.version>5.0.SP3</org.jboss.weld-spi.version>
             </properties>
 

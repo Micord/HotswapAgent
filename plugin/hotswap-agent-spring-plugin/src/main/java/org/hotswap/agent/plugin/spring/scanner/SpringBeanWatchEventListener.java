@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -32,6 +32,9 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The type Spring bean watch event listener.
+ */
 public class SpringBeanWatchEventListener implements WatchEventListener {
     private static final AgentLogger LOGGER = AgentLogger.getLogger(SpringBeanWatchEventListener.class);
 

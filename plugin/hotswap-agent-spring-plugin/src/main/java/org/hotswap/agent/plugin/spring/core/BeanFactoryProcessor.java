@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -61,7 +61,7 @@ public class BeanFactoryProcessor {
         // check if reload , then log
         if (beanFactory instanceof ConfigurableListableBeanFactory &&
             BeanFactoryAssistant.getBeanFactoryAssistant((ConfigurableListableBeanFactory)beanFactory).isReload()) {
-            LOGGER.info("destroy bean '{}' from '{}'", beanName, ObjectUtils.identityToString(beanFactory));
+            LOGGER.debug("destroy bean '{}' from '{}'", beanName, ObjectUtils.identityToString(beanFactory));
         }
         if (beanFactory instanceof BeanFactoryLifecycle) {
             ((BeanFactoryLifecycle)beanFactory).hotswapAgent$destroyBean(beanName);
@@ -80,7 +80,7 @@ public class BeanFactoryProcessor {
         if (beanFactory instanceof ConfigurableListableBeanFactory
             && BeanFactoryAssistant.getBeanFactoryAssistant((ConfigurableListableBeanFactory)beanFactory).isReload()
             && mbd.isSingleton()) {
-            LOGGER.info("create new singleton bean '{}' from '{}'", beanName,
+            LOGGER.debug("create new singleton bean '{}' from '{}'", beanName,
                 ObjectUtils.identityToString(beanFactory));
         }
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -209,7 +209,7 @@ public class BeanClassRefreshAgent {
     private static void doReinjectBean(BeanManagerImpl beanManager, InjectionTargetBean<?> bean) {
         try {
             if (!bean.getScope().equals(ApplicationScoped.class) &&
-                    (!HaCdiCommons.isRegisteredScope(bean.getScope()) || HaCdiCommons.isInExtraScope(bean))) {
+                    (HaCdiCommons.isRegisteredScope(bean.getScope()) || HaCdiCommons.isInExtraScope(bean))) {
                 doReinjectRegisteredBeanInstances(beanManager, bean);
             } else {
                 doReinjectBeanInstance(beanManager, bean, beanManager.getContext(bean.getScope()));

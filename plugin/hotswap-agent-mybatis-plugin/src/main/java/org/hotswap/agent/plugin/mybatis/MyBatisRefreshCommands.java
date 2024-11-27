@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -39,12 +39,22 @@ public class MyBatisRefreshCommands {
      * in the test class and wait until the flag is false again.
      */
     public static boolean reloadFlag = false;
+    public static boolean isMybatisPlus = false;
 
     public static void reloadConfiguration() {
         LOGGER.debug("Refreshing MyBatis configuration.");
-        ConfigurationProxy.refreshProxiedConfigurations();
-        SpringMybatisConfigurationProxy.refreshProxiedConfigurations();
-        LOGGER.reload("MyBatis configuration refreshed.");
+        /**
+         * If running in MyBatis-Spring mode, then during reload, we only need to use SpringMybatisConfigurationProxy
+         * for reloading. Refreshing the ConfigurationProxy is not meaningful.The same applies in the opposite case.
+         */
+        reloadFlag = true;
+        if (SpringMybatisConfigurationProxy.runningBySpringMybatis()) {
+            SpringMybatisConfigurationProxy.refreshProxiedConfigurations();
+            LOGGER.debug("MyBatis Spring configuration refreshed.");
+        } else {
+            ConfigurationProxy.refreshProxiedConfigurations();
+            LOGGER.reload("MyBatis configuration refreshed.");
+        }
         reloadFlag = false;
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -26,7 +26,6 @@ import org.hotswap.agent.util.signature.ClassSignatureComparerHelper;
  * Checks if a Signature of a Class has changed enough to necessitate a Spring reload.
  *
  * @author Erki Ehtla, Vladimir Dvorak
- *
  */
 public class ClassSignatureComparer {
 

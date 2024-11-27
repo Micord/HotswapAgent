@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -113,7 +113,7 @@ public class HibernateJakartaPlugin
      * Plugin initialization properties (from HibernatePersistenceHelper or SessionFactoryProxy)
      */
     public void init(String version, Boolean hibernateEjb) {
-        LOGGER.info("Hibernate plugin initialized - Hibernate Core version '{}'", version);
+        LOGGER.info("HibernateJakarta plugin initialized - Hibernate Core version '{}'", version);
         this.hibernateEjb = hibernateEjb;
     }
 

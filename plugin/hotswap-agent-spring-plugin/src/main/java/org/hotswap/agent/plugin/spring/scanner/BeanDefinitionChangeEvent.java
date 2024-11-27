@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2023 the HotswapAgent authors.
+ * Copyright 2013-2024 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -22,6 +22,9 @@ import org.hotswap.agent.plugin.spring.listener.SpringEvent;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
+/**
+ * The type Bean definition change event.
+ */
 public class BeanDefinitionChangeEvent extends SpringEvent<BeanDefinitionHolder> {
     /**
      * Constructs a prototypical Event.
