@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2024 the HotswapAgent authors.
+ * Copyright 2013-2025 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -35,12 +35,18 @@ public class WebappClassLoaderTransformer {
     public static void patchWebappClassLoader(ClassPool classPool,CtClass ctClass) throws CannotCompileException, NotFoundException {
         if (!webappClassLoaderPatched) {
             try {
+                String cacheFieldName = "resourceEntries";
+                try {
+                    ctClass.getDeclaredField(cacheFieldName);
+                } catch (NotFoundException e) {
+                    cacheFieldName = "resourceEntryCache";
+                }
                 // clear classloader cache
                 ctClass.getDeclaredMethod("getResource", new CtClass[]{classPool.get("java.lang.String")}).insertBefore(
-                        "resourceEntries.clear();"
+                        cacheFieldName + ".clear();"
                 );
                 ctClass.getDeclaredMethod("getResourceAsStream", new CtClass[]{classPool.get("java.lang.String")}).insertBefore(
-                        "resourceEntries.clear();"
+                        cacheFieldName + ".clear();"
                 );
                 webappClassLoaderPatched = true;
             } catch (NotFoundException e) {

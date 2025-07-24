@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2024 the HotswapAgent authors.
+ * Copyright 2013-2025 the HotswapAgent authors.
  *
  * This file is part of HotswapAgent.
  *
@@ -84,10 +84,10 @@ public class ClassLoaderDefineClassPatcher {
                 CtClass pluginClass = null;
                 try {
                     // force to load class in classLoaderFrom (it may not yet be loaded) and if the classLoaderTo
-                    // is parent of classLoaderFrom, after definition in classLoaderTo will classLoaderFrom return
+                    // is a parent of classLoaderFrom, after definition in classLoaderTo will classLoaderFrom return
                     // class from parent classloader instead own definition (hence change of behaviour).
                     InputStream is = new ByteArrayInputStream(pluginBytes);
-                    pluginClass = cp.makeClass(is);
+                    pluginClass = cp.makeClass(is, false);
                     try {
                         classLoaderFrom.loadClass(pluginClass.getName());
                     } catch (NoClassDefFoundError e) {
