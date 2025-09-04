@@ -12,8 +12,8 @@
     <artifactId>hotswap-agent-resteasy-plugin</artifactId>
 
     <properties>
-        <servlet-api.version>3.0.1</servlet-api.version>
-        <resteasy-jaxrs.version>3.11.0.Final</resteasy-jaxrs.version>
+        <servlet-api.version>6.1.0</servlet-api.version>
+        <resteasy-jaxrs.version>6.2.12.Final</resteasy-jaxrs.version>
     </properties>
 
     <dependencies>
@@ -24,18 +24,17 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <version>${resteasy-jaxrs.version}</version>
+            <artifactId>resteasy-core-spi</artifactId>
+            <version>6.2.12.Final</version>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>async-http-servlet-3.0</artifactId>
-            <version>${resteasy-jaxrs.version}</version>
+            <artifactId>resteasy-core</artifactId>
+            <version>6.2.12.Final</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <version>${servlet-api.version}</version>
         </dependency>
     </dependencies>

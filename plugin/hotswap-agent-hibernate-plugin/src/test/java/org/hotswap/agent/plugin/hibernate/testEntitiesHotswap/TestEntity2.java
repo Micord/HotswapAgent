@@ -18,10 +18,10 @@
  */
 package org.hotswap.agent.plugin.hibernate.testEntitiesHotswap;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 /**
  * Test entity

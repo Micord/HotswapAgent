@@ -12,9 +12,6 @@
 
 	<artifactId>hotswap-agent-wildfly-el-plugin</artifactId>
 
-	<properties>
-		<version.org.jboss.spec.javax.el>1.0.5.Final</version.org.jboss.spec.javax.el>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.hotswapagent</groupId>
@@ -22,9 +19,8 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.spec.javax.el</groupId>
-			<artifactId>jboss-el-api_3.0_spec</artifactId>
-			<version>${version.org.jboss.spec.javax.el}</version>
+			<groupId>jakarta.el</groupId>
+			<artifactId>jakarta.el-api</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -18,7 +18,7 @@
  */
 package org.hotswap.agent.plugin.spring.testBeans;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

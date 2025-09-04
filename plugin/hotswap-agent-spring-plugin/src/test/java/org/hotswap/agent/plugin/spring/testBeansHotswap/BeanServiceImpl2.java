@@ -18,7 +18,7 @@
  */
 package org.hotswap.agent.plugin.spring.testBeansHotswap;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.hotswap.agent.plugin.spring.testBeans.BeanChangedRepository;
 import org.hotswap.agent.plugin.spring.testBeans.BeanService;

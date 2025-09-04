@@ -79,7 +79,7 @@ public class ResteasyPlugin {
     @OnClassLoadEvent(classNameRegexp = "org.jboss.resteasy.plugins.server.servlet.FilterDispatcher")
     public static void patchFilterDispatcher(CtClass ctClass, ClassPool classPool) throws NotFoundException, CannotCompileException {
 
-        CtClass fltCfgClass = classPool.get("javax.servlet.FilterConfig");
+        CtClass fltCfgClass = classPool.get("jakarta.servlet.FilterConfig");
         CtField configField = new CtField(fltCfgClass, FIELD_NAME, ctClass);
         ctClass.addField(configField);
 
@@ -105,7 +105,7 @@ public class ResteasyPlugin {
     @OnClassLoadEvent(classNameRegexp = "org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher")
     public static void patchServletDispatcher(CtClass ctClass, ClassPool classPool) throws NotFoundException, CannotCompileException {
 
-        CtClass fltCfgClass = classPool.get("javax.servlet.ServletConfig");
+        CtClass fltCfgClass = classPool.get("jakarta.servlet.ServletConfig");
         CtField configField = new CtField(fltCfgClass, FIELD_NAME, ctClass);
         ctClass.addField(configField);
 

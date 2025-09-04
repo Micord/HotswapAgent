@@ -156,7 +156,7 @@ public class ManifestMatcherTest {
 @Versions(
         manifest = {
             @Manifest(value="[2.0,)",versionName = Name.SpecificationVersion, names={
-                    @Name(key=Name.ImplementationTitle,value="javax.el"),
+                    @Name(key=Name.ImplementationTitle,value="jakarta.el"),
                     @Name(key=Name.ImplementationVendor, value="Apache.*Software.*Foundation")
             })
         }

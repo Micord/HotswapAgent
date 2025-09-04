@@ -17,7 +17,6 @@
         <module>hotswap-agent-core</module>
         <module>plugin/hotswap-agent-hibernate-plugin</module>
         <module>plugin/hotswap-agent-hibernate-jakarta-plugin</module>
-        <module>plugin/hotswap-agent-hibernate3-plugin</module>
         <module>plugin/hotswap-agent-spring-plugin</module>
         <module>plugin/hotswap-agent-spring-boot-plugin</module>
         <module>plugin/hotswap-agent-jersey1-plugin</module>
@@ -33,15 +32,12 @@
         <module>plugin/hotswap-agent-omnifaces-plugin</module>
         <module>plugin/hotswap-agent-el-resolver-plugin</module>
         <module>plugin/hotswap-agent-osgiequinox-plugin</module>
-        <module>plugin/hotswap-agent-owb-plugin</module>
         <module>plugin/hotswap-agent-owb-jakarta-plugin</module>
         <module>plugin/hotswap-agent-proxy-plugin</module>
         <module>plugin/hotswap-agent-webobjects-plugin</module>
-        <module>plugin/hotswap-agent-weld-plugin</module>
         <module>plugin/hotswap-agent-weld-jakarta-plugin</module>
         <module>plugin/hotswap-agent-jbossmodules-plugin</module>
         <module>plugin/hotswap-agent-resteasy-registry-plugin</module>
-        <module>plugin/hotswap-agent-deltaspike-plugin</module>
         <module>plugin/hotswap-agent-deltaspike-jakarta-plugin</module>
         <module>plugin/hotswap-agent-wildfly-el-plugin</module>
         <module>plugin/hotswap-agent-glassfish-plugin</module>

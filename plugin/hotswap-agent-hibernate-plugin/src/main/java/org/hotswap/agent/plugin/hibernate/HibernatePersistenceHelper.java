@@ -23,8 +23,8 @@ import org.hotswap.agent.logging.AgentLogger;
 import org.hotswap.agent.plugin.hibernate.proxy.EntityManagerFactoryProxy;
 import org.hotswap.agent.util.PluginManagerInvoker;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.spi.PersistenceUnitInfo;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.spi.PersistenceUnitInfo;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;

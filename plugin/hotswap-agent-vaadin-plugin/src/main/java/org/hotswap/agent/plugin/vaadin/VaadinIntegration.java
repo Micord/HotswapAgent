@@ -18,7 +18,7 @@
  */
 package org.hotswap.agent.plugin.vaadin;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collections;

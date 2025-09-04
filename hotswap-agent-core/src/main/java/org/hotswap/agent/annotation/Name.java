@@ -50,7 +50,7 @@ public @interface Name {
      * bundle, based on the reverse domain name convention (used also by the
      * java packages).
      * </p>
-     * <code>Bundle-SymbolicName: javax.servlet-api</code>
+     * <code>Bundle-SymbolicName: jakarta.servlet-api</code>
      */
     static String BundleSymbolicName = "Bundle-SymbolicName";
 

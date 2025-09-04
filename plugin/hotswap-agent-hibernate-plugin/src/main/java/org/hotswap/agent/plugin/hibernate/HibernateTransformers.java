@@ -42,7 +42,7 @@ public class HibernateTransformers {
     private static boolean isJavax(ClassPool classPool) {
         if (isJavax == null) {
             try {
-                classPool.get("javax.persistence.EntityManager");
+                classPool.get("jakarta.persistence.EntityManager");
                 isJavax = true;
             } catch (NotFoundException e) {
                 isJavax = false;
@@ -71,8 +71,8 @@ public class HibernateTransformers {
         CtMethod oldMethod = clazz.getDeclaredMethod("createContainerEntityManagerFactory");
         oldMethod.setName("$$ha$createContainerEntityManagerFactory" + clazz.getSimpleName());
         CtMethod newMethod = CtNewMethod.make(
-                "public javax.persistence.EntityManagerFactory createContainerEntityManagerFactory(" +
-                        "           javax.persistence.spi.PersistenceUnitInfo info, java.util.Map properties) {" +
+                "public jakarta.persistence.EntityManagerFactory createContainerEntityManagerFactory(" +
+                        "           jakarta.persistence.spi.PersistenceUnitInfo info, java.util.Map properties) {" +
                         "  properties.put(\"PERSISTENCE_CLASS_NAME\", \"" + clazz.getName() + "\");" +
                         "  return " + HibernatePersistenceHelper.class.getName() + ".createContainerEntityManagerFactoryProxy(" +
                         "      this, info, properties, $$ha$createContainerEntityManagerFactory" + clazz.getSimpleName() + "(info, properties)); " +
@@ -84,7 +84,7 @@ public class HibernateTransformers {
             oldMethod.setName("$$ha$createEntityManagerFactory" + clazz.getSimpleName());
 
             newMethod = CtNewMethod.make(
-                    "public javax.persistence.EntityManagerFactory createEntityManagerFactory(" +
+                    "public jakarta.persistence.EntityManagerFactory createEntityManagerFactory(" +
                             "           String persistenceUnitName, java.util.Map properties) {" +
                             "  return " + HibernatePersistenceHelper.class.getName() + ".createEntityManagerFactoryProxy(" +
                             "      this, persistenceUnitName, properties, $$ha$createEntityManagerFactory" + clazz.getSimpleName() + "(persistenceUnitName, properties)); " +

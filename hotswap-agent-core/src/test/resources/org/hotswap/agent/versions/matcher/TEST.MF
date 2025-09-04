@@ -13,7 +13,7 @@ Implementation-Vendor: The Apache Software Foundation
 Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  pache.myfaces.shared_impl.webapp.webxml,javax.faces.context,org.apach
  e.myfaces.context.servlet,javax.faces.validator,javax.faces.event,jav
- ax.servlet.annotation,javax.servlet,javax.faces.component,javax.faces
+ ax.servlet.annotation,jakarta.servlet,javax.faces.component,javax.faces
  .application,javax.faces.bean,javax.faces.webapp,javax.faces.convert,
  javax.faces.component.behavior,org.apache.myfaces.spi";version="2.2.9
  ",org.apache.myfaces.view.facelets.tag.composite;uses:="javax.faces.v
@@ -33,15 +33,15 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  ersion="2.2.9",org.apache.myfaces.view.impl;uses:="javax.faces.contex
  t,org.apache.myfaces.spi";version="2.2.9",org.apache.myfaces.taglib.c
  ore;uses:="javax.el,javax.faces.component,javax.faces.event,javax.fac
- es.context,javax.faces.webapp,javax.servlet.jsp.tagext,javax.servlet.
+ es.context,javax.faces.webapp,jakarta.servlet.jsp.tagext,jakarta.servlet.
  jsp,javax.faces.application,javax.faces.convert,javax.faces,javax.fac
  es.validator,org.apache.myfaces.event,org.apache.myfaces.application.
- jsp,org.apache.myfaces.convert,javax.servlet.jsp.jstl.core,javax.serv
- let";version="2.2.9",org.apache.myfaces.util;uses:="javax.servlet,jav
+ jsp,org.apache.myfaces.convert,jakarta.servlet.jsp.jstl.core,javax.serv
+ let";version="2.2.9",org.apache.myfaces.util;uses:="jakarta.servlet,jav
  ax.faces.context,javax.el,javax.faces.event,javax.faces.validator,jav
  ax.faces,javax.faces.component,org.apache.myfaces.config.element,java
  x.faces.application,javax.validation";version="2.2.9",org.apache.myfa
- ces.context.servlet;uses:="javax.servlet,org.apache.myfaces.util,java
+ ces.context.servlet;uses:="jakarta.servlet,org.apache.myfaces.util,java
  x.servlet.http,javax.faces,javax.faces.render,org.apache.myfaces.cont
  ext,javax.faces.application,javax.faces.context,javax.faces.event,jav
  ax.el,javax.faces.component,org.apache.myfaces.el.unified,javax.faces
@@ -79,7 +79,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  .view.jsp,javax.faces.application,javax.faces.context,javax.faces.vie
  w,org.apache.myfaces.view.facelets,javax.faces.component,javax.faces.
  event,org.apache.myfaces.spi";version="2.2.9",org.apache.myfaces.appl
- ication.jsp;uses:="javax.servlet,javax.servlet.http";version="2.2.9",
+ ication.jsp;uses:="jakarta.servlet,jakarta.servlet.http";version="2.2.9",
  org.apache.myfaces.event;uses:="javax.faces.event,javax.el,javax.face
  s.component,javax.faces.context";version="2.2.9",org.apache.myfaces.v
  iew.facelets.tag.ui;uses:="javax.faces.component,javax.faces.view.fac
@@ -88,16 +88,16 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  .visit,javax.faces.event,org.apache.myfaces.view.facelets.tag.jsf,jav
  ax.faces.application,org.apache.myfaces.view.facelets.impl,org.apache
  .myfaces.view.facelets.el,org.apache.myfaces.util,org.apache.myfaces.
- view.facelets.util,org.apache.myfaces.renderkit,javax.servlet.http";v
+ view.facelets.util,org.apache.myfaces.renderkit,jakarta.servlet.http";v
  ersion="2.2.9",org.apache.myfaces.webapp;uses:="org.apache.myfaces.co
  nfig.element,javax.el,javax.faces.context,org.apache.myfaces.util,org
  .apache.myfaces.context.servlet,javax.faces.event,org.apache.myfaces.
- cdi.dependent,javax.servlet,org.apache.myfaces.view.facelets.tag,org.
+ cdi.dependent,jakarta.servlet,org.apache.myfaces.view.facelets.tag,org.
  apache.myfaces.config,javax.faces.component,javax.faces.application,o
  rg.apache.myfaces.context,org.apache.myfaces.view.facelets,org.apache
- .myfaces.spi,javax.faces,org.apache.myfaces.el,javax.servlet.jsp,org.
+ .myfaces.spi,javax.faces,org.apache.myfaces.el,jakarta.servlet.jsp,org.
  apache.myfaces.el.unified,org.apache.myfaces.el.unified.resolver,java
- x.faces.lifecycle,javax.servlet.http,org.apache.myfaces.shared_impl.w
+ x.faces.lifecycle,jakarta.servlet.http,org.apache.myfaces.shared_impl.w
  ebapp.webxml,javax.faces.webapp,org.apache.myfaces.config.annotation"
  ;version="2.2.9",org.apache.myfaces.view.facelets.impl;uses:="org.apa
  che.myfaces.view.facelets.util,javax.faces.view.facelets,org.apache.m
@@ -108,7 +108,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  ax.faces.component.visit,javax.faces.view,org.apache.myfaces.util";ve
  rsion="2.2.9",org.apache.myfaces.cdi.impl;uses:="javax.faces.context,
  javax.enterprise.inject.spi,org.apache.myfaces.cdi.util,org.apache.my
- faces.spi,javax.enterprise.context.spi,javax.servlet,org.apache.myfac
+ faces.spi,javax.enterprise.context.spi,jakarta.servlet,org.apache.myfac
  es.cdi.view,org.apache.myfaces.flow.cdi";version="2.2.9",org.apache.m
  yfaces.view.facelets.tag.jsf.html;uses:="org.apache.myfaces.view.face
  lets.tag,javax.faces.view.facelets,javax.faces.view,javax.faces.compo
@@ -132,9 +132,9 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  javax.faces.el,javax.faces.component.visit,javax.faces.validator";ver
  sion="2.2.9",org.apache.myfaces.view.jsp;uses:="org.apache.myfaces.ap
  plication.viewstate,javax.faces.render,org.apache.myfaces.renderkit,j
- avax.faces.context,javax.servlet.jsp.jstl.core,javax.faces.event,java
- x.faces,javax.servlet,javax.faces.component,javax.faces.application,o
- rg.apache.myfaces.application.jsp,javax.servlet.http,org.apache.myfac
+ avax.faces.context,jakarta.servlet.jsp.jstl.core,javax.faces.event,java
+ x.faces,jakarta.servlet,javax.faces.component,javax.faces.application,o
+ rg.apache.myfaces.application.jsp,jakarta.servlet.http,org.apache.myfac
  es.view,javax.faces.view";version="2.2.9",org.apache.myfaces.componen
  t;uses:="javax.faces.component,javax.faces.context";version="2.2.9",o
  rg.apache.myfaces.application.cdi;uses:="javax.faces,javax.faces.comp
@@ -146,21 +146,21 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  ces.render,org.apache.myfaces.view.facelets.component,javax.faces.com
  ponent.visit,javax.el,org.apache.myfaces.lifecycle,javax.faces.event,
  javax.faces.el,javax.faces.view,org.apache.myfaces.view.facelets.el,o
- rg.apache.myfaces.spi,javax.servlet.http";version="2.2.9",org.apache.
+ rg.apache.myfaces.spi,jakarta.servlet.http";version="2.2.9",org.apache.
  myfaces.spi.impl;uses:="javax.annotation,javax.naming,javax.ejb,javax
  .persistence,javax.faces.context,org.apache.myfaces.util,org.apache.m
  yfaces.spi,javax.faces,org.apache.myfaces.config.annotation,org.apach
  e.myfaces.view.facelets.compiler,org.apache.myfaces.config,org.apache
  .myfaces.flow.impl,org.apache.myfaces.resource,org.apache.myfaces.vie
  w.impl,org.apache.myfaces.shared_impl.webapp.webxml,org.apache.tomcat
- ,javax.servlet,org.apache";version="2.2.9",org.apache.myfaces.flow.cd
+ ,jakarta.servlet,org.apache";version="2.2.9",org.apache.myfaces.flow.cd
  i;uses:="org.apache.commons.collections.map,javax.faces.flow,javax.fa
  ces.application,javax.enterprise.inject.spi,javax.faces.context,javax
  .enterprise.inject,org.apache.myfaces.cdi.util,javax.faces.lifecycle,
  org.apache.myfaces.spi,javax.enterprise.event,javax.enterprise.contex
  t,org.apache.myfaces.flow.builder,javax.faces.flow.builder,javax.inje
  ct,javax.enterprise.util,javax.annotation,org.apache.myfaces.context.
- servlet,javax.servlet,org.apache.myfaces.flow,org.apache.myfaces.cont
+ servlet,jakarta.servlet,org.apache.myfaces.flow,org.apache.myfaces.cont
  ext,org.apache.myfaces.cdi.view,javax.enterprise.context.spi";version
  ="2.2.9",org.apache.myfaces.cdi.dependent;uses:="javax.annotation,jav
  ax.enterprise.inject.spi,javax.enterprise.context.spi,javax.enterpris
@@ -168,7 +168,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  flow.impl;uses:="javax.faces.flow,org.apache.myfaces.flow,org.apache.
  myfaces.config,javax.faces.application,javax.faces.context,org.apache
  .myfaces.spi,javax.faces.lifecycle";version="2.2.9",org.apache.myface
- s.context;uses:="javax.faces.context,javax.faces,javax.servlet,org.ap
+ s.context;uses:="javax.faces.context,javax.faces,jakarta.servlet,org.ap
  ache.myfaces.context.servlet,javax.faces.render,javax.faces.applicati
  on,javax.faces.lifecycle,javax.el,javax.faces.component,javax.faces.e
  vent,org.apache.myfaces.renderkit,org.apache.myfaces.lifecycle,org.ap
@@ -186,7 +186,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  .facelets;uses:="org.apache.myfaces.config.element.facelets";version=
  "2.2.9",org.apache.myfaces.spi;uses:="javax.faces,javax.faces.context
  ,org.apache.myfaces.spi.impl,org.apache.myfaces.config.element,javax.
- faces.flow,javax.servlet";version="2.2.9",org.apache.myfaces.view.fac
+ faces.flow,jakarta.servlet";version="2.2.9",org.apache.myfaces.view.fac
  elets.el;uses:="javax.el,javax.faces,javax.faces.component,javax.face
  s.context,javax.faces.view,javax.faces.view.facelets,org.apache.myfac
  es.view.facelets.util,org.apache.myfaces.view.facelets,org.apache.myf
@@ -198,7 +198,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  "javax.faces.flow,javax.el,org.apache.myfaces.flow,javax.faces.applic
  ation,javax.faces.context,javax.faces.flow.builder,org.apache.myfaces
  .view.facelets.el";version="2.2.9",org.apache.myfaces.view.facelets.u
- til;uses:="javax.faces,javax.servlet,javax.faces.context";version="2.
+ til;uses:="javax.faces,jakarta.servlet,javax.faces.context";version="2.
  2.9",org.apache.myfaces.view.facelets.component;uses:="javax.faces.co
  mponent,javax.faces.component.behavior,javax.faces,javax.faces.contex
  t,javax.faces.render,javax.faces.component.visit,javax.faces.event,ja
@@ -208,8 +208,8 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  context,javax.faces.component,javax.faces.flow,javax.faces.applicatio
  n";version="2.2.9",org.apache.myfaces.lifecycle;uses:="javax.faces.co
  mponent,javax.faces.context,org.apache.myfaces.view.facelets,javax.fa
- ces.event,javax.servlet,javax.faces,javax.faces.application,javax.fac
- es.lifecycle,javax.servlet.http,org.apache.myfaces.config,javax.faces
+ ces.event,jakarta.servlet,javax.faces,javax.faces.application,javax.fac
+ es.lifecycle,jakarta.servlet.http,org.apache.myfaces.config,javax.faces
  .component.visit,javax.faces.render,javax.faces.view,org.apache.myfac
  es.shared_impl.webapp.webxml,org.apache.myfaces.util,javax.el,org.apa
  che.myfaces.renderkit,javax.faces.flow,org.apache.myfaces.event";vers
@@ -238,7 +238,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  ect,javax.faces.application,org.apache.myfaces.context.servlet,javax.
  faces.view,org.apache.myfaces.view.facelets.el";version="2.2.9",org.a
  pache.myfaces.config.impl;uses:="javax.faces.context,org.xml.sax";ver
- sion="2.2.9",org.apache.myfaces.cdi.view;uses:="javax.servlet,javax.e
+ sion="2.2.9",org.apache.myfaces.cdi.view;uses:="jakarta.servlet,javax.e
  nterprise.context,javax.annotation,javax.faces.context,javax.enterpri
  se.inject.spi,org.apache.myfaces.context.servlet,org.apache.myfaces.c
  ontext,javax.inject,org.apache.myfaces.cdi.util,javax.enterprise.even
@@ -274,7 +274,7 @@ Export-Package: org.apache.myfaces.ee6;uses:="javax.faces.render,org.a
  yfaces.context,javax.faces.component.behavior,javax.faces.view,org.ap
  ache.myfaces.view.facelets.el,org.apache.myfaces.lifecycle,org.apache
  .myfaces.resource,javax.faces.component.visit,org.apache.myfaces.view
- .facelets.tag.jsf,javax.servlet,javax.servlet.http,org.apache.myfaces
+ .facelets.tag.jsf,jakarta.servlet,jakarta.servlet.http,org.apache.myfaces
  .application.viewstate,org.apache.myfaces.renderkit";version="2.2.9",
  org.apache.myfaces.config;uses:="org.xml.sax.helpers,org.xml.sax,org.
  w3c.dom.ls,javax.faces.context,javax.xml.transform,javax.xml.transfor
@@ -400,11 +400,11 @@ Import-Package: com.google.inject;resolution:=optional;version="[1.0.0
  on="2.2.9",javax.faces.view.facelets;version="2.2.9",javax.faces.weba
  pp;version="2.2.9",javax.inject;version="1.0",javax.naming,javax.pers
  istence;resolution:=optional;version="[1.0.0,2.1)",javax.portlet;vers
- ion="[1.0.0,2.1)";resolution:=optional,javax.servlet;version="[2.5.0,
- 4.0)",javax.servlet.annotation;resolution:=optional;version="[2.5.0,4
- .0)",javax.servlet.http;version="[2.5.0,4.0)",javax.servlet.jsp;versi
- on="[2.1.0,3.1)",javax.servlet.jsp.jstl.core;version="[1.1.2,2.0.0)",
- javax.servlet.jsp.tagext;version="[2.1.0,3.1)",javax.validation;versi
+ ion="[1.0.0,2.1)";resolution:=optional,jakarta.servlet;version="[2.5.0,
+ 4.0)",jakarta.servlet.annotation;resolution:=optional;version="[2.5.0,4
+ .0)",jakarta.servlet.http;version="[2.5.0,4.0)",jakarta.servlet.jsp;versi
+ on="[2.1.0,3.1)",jakarta.servlet.jsp.jstl.core;version="[1.1.2,2.0.0)",
+ jakarta.servlet.jsp.tagext;version="[2.1.0,3.1)",javax.validation;versi
  on="1.0",javax.validation.groups;version="1.0",javax.xml.parsers,java
  x.xml.transform,javax.xml.transform.dom,javax.xml.transform.stream,ja
  vax.xml.validation,org.apache;resolution:=optional,org.apache.commons
@@ -419,4 +419,3 @@ Import-Package: com.google.inject;resolution:=optional;version="[1.0.0
  ,org.xml.sax.ext,org.xml.sax.helpers
 Bundle-SymbolicName: org.apache.myfaces.core.impl
 Bundle-DocURL: http://www.apache.org/
-

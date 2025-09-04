@@ -120,7 +120,7 @@ public class ManifestMiniDumper {
     public static final Name SPECIFICATION_TITLE = new Name("Specification-Title");
 
     /** The Constant BUNDLE_SYMBOLIC_NAME. */
-    // Bundle-SymbolicName: javax.servlet-api
+    // Bundle-SymbolicName: jakarta.servlet-api
     public static final Name BUNDLE_SYMBOLIC_NAME = new Name("Bundle-SymbolicName");
 
     /** The Constant BUNDLE_NAME. */
