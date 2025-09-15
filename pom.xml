@@ -5,7 +5,7 @@
 
     <groupId>org.hotswapagent</groupId>
     <artifactId>hotswap-agent-aggregator</artifactId>
-    <version>2.0.2-micord.1</version>
+    <version>2.0.2-micord.2</version>
     <packaging>pom</packaging>
 
     <name>Hotswap Agent Aggregator</name>
@@ -15,7 +15,6 @@
     <modules>
         <module>hotswap-agent-parent</module>
         <module>hotswap-agent-core</module>
-        <module>plugin/hotswap-agent-hibernate-plugin</module>
         <module>plugin/hotswap-agent-hibernate-jakarta-plugin</module>
         <module>plugin/hotswap-agent-spring-plugin</module>
         <module>plugin/hotswap-agent-spring-boot-plugin</module>

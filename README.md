@@ -199,7 +199,6 @@ uses HA services to:
 * [Deltaspike](plugin/hotswap-agent-deltaspike-plugin/README.md) (1.x,2.x) - messages, ViewConfig, repository, proxy reloading. Deltaspike scoped CDI beans reinjection.
 * [ELResolver](plugin/hotswap-agent-el-resolver-plugin/README.md) (2.x-5.x) (JuelEL, Appache Commons EL, Oracle EL 3.0)- clear ELResolver cache on class change. Support hotswap for #{...} expressions.
 * [FreeMarker](plugin/hotswap-agent-freemarker-plugin/README.md) - clear the Apache Freemarker beans class-introspection cache on class definition change.
-* [Hibernate](plugin/hotswap-agent-hibernate-plugin/README.md) (3.x-6.x) - Reload Hibernate configuration after entity create/change.
 * [iBatis](plugin/hotswap-agent-ibatis-plugin/README.md) - iBatis configuration reload.
 * [IDEA](plugin/hotswap-agent-idea-plugin/README.md) - support for IntelliJ IDEA development in IDEA
 * [Jackson](plugin/hotswap-agent-jackson-plugin/README.md) - clears jackson internal caches when class redefined.

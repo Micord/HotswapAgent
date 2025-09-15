@@ -24,12 +24,6 @@
 
         <dependency>
             <groupId>org.hotswapagent</groupId>
-            <artifactId>hotswap-agent-hibernate-plugin</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hotswapagent</groupId>
             <artifactId>hotswap-agent-hibernate-jakarta-plugin</artifactId>
             <version>${project.version}</version>
         </dependency>
